@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     siteUrl: "https://www.yourdomain.tld",
@@ -24,6 +28,14 @@ module.exports = {
         path: "./src/images/",
       },
       __key: "images",
+    },
+    {
+      resolve: `gatsby-source-strapi`,
+      options: {
+        apiURL: process.env.API_URL,
+        collectionTypes: [`courses`, `routes`],
+        singleTypes: [`about`, `contact`, `excellent-student`, `intro`, `reason`],
+      },
     },
   ],
 };
