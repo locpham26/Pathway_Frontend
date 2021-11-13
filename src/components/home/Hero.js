@@ -7,12 +7,15 @@ import { graphql, useStaticQuery } from "gatsby";
 const StyledHeroSection = styled.section`
   min-height: 100vh;
   width: 100%;
+  margin-bottom: 96px;
   background-color: var(--primary-yellow);
   display: flex;
   align-items: center;
   .hero-inner {
     display: flex;
     align-items: center;
+    justify-content: center;
+    gap: 64px;
     width: 75%;
     margin: auto;
     height: 600px;
@@ -20,19 +23,28 @@ const StyledHeroSection = styled.section`
 `;
 
 const StyledHeroInfo = styled.div`
-  width: 30%;
-  display: flex;
-  flex-direction: column;
+  width: 40%;
   gap: 64px;
   .title {
     font-size: 28px;
     font-weight: 700;
     color: var(--primary-navy);
+    margin-bottom: 48px;
   }
   .subtitle {
     font-size: 20px;
     font-weight: 500;
     color: var(--primary-navy);
+  }
+  .cta-button {
+    border-radius: 10px;
+    padding: 16px 24px;
+    border: none;
+    outline: none;
+    background-color: var(--primary-navy);
+    color: var(--primary-yellow);
+    font-size: 20px;
+    cursor: pointer;
   }
 `;
 
@@ -76,8 +88,9 @@ const Hero = () => {
     <StyledHeroSection>
       <div className="hero-inner">
         <StyledHeroInfo>
-          <h3 className="title">{intro[0].title}</h3>
+          <h1 className="title">{intro[0].title}</h1>
           <h6 className="subtitle">{intro[0].subtitle}</h6>
+          <button className="cta-button">Tìm hiểu thêm</button>
         </StyledHeroInfo>
         <StyledHeroImage>
           <BagSvg className="hero-bag-image" />
